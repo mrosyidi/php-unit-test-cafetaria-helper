@@ -64,4 +64,16 @@
             $result = CheckHelper::check($drinks, "Es Oyen");
             $this->assertTrue($result);
         }
+
+        public function testDrinkFoundWithDifferentCaseAndWhitespace()
+        {
+            $drinks = [
+                new Drink("  Es   Coklat", 12000),
+                new Drink(" J  us  Alpukat", 10000),
+                new Drink(" Es   Oy e  n   ", 12000)
+            ];
+
+            $result = CheckHelper::check($drinks, "jusalpukat");
+            $this->assertTrue($result);
+        }
     }
