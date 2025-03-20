@@ -1,1 +1,1 @@
-{"version":1,"defects":[],"times":{"Cafetaria\\Helper\\InputHelperTest::testInputWithProvidedValue":0.005}}
+{"version":1,"defects":[],"times":{"Cafetaria\\Helper\\InputHelperTest::testInputWithProvidedValue":0.003,"Cafetaria\\Helper\\InputHelperTest::testInputWithStream":0}}
