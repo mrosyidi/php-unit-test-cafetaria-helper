@@ -88,4 +88,12 @@
             $result = CheckHelper::check($drinks, "Jus Semangka");
             $this->assertFalse($result);
         }
+
+        public function testEmptyDrinkList()
+        {
+            $drinks = [];
+
+            $result = CheckHelper::check($drinks, "Es Campur");
+            $this->assertFalse($result);
+        }
     }
