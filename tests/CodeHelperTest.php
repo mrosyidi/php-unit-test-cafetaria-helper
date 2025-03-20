@@ -18,4 +18,18 @@
             $code = CodeHelper::code($orders, $payments, $exit);
             $this->assertEquals(1, $code);
         }
+
+        public function testEmptyOrdersWithPayments()
+        {
+            $orders = [];
+            $payments = [
+                new Payment(3),
+                new Payment(5),
+                new Payment(2)
+            ];
+            $exit = false;
+
+            $code = CodeHelper::code($orders, $payments, $exit);
+            $this->assertEquals(6, $code);
+        }
     }
