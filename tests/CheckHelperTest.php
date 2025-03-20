@@ -52,4 +52,16 @@
             $result = CheckHelper::check($foods, "Soto Ayam");
             $this->assertFalse($result);
         }
+
+        public function testDrinkFoundExactMatch()
+        {
+            $drinks = [
+                new Drink("Es Campur", 12000),
+                new Drink("Es Oyen", 12000),
+                new Drink("Jus Wortel", 6000)
+            ];
+
+            $result = CheckHelper::check($drinks, "Es Oyen");
+            $this->assertTrue($result);
+        }
     }
