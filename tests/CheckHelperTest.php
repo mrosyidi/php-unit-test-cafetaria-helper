@@ -76,4 +76,16 @@
             $result = CheckHelper::check($drinks, "jusalpukat");
             $this->assertTrue($result);
         }
+
+        public function testDrinkNotFound()
+        {
+            $drinks = [
+                new Drink("Jus Melon", 6000),
+                new Drink("Es Campur", 12000),
+                new Drink("Es Kelapa Muda", 5000)
+            ];
+
+            $result = CheckHelper::check($drinks, "Jus Semangka");
+            $this->assertFalse($result);
+        }
     }
