@@ -75,4 +75,19 @@
             $code = CodeHelper::code($orders, $payments, $exit);
             $this->assertEquals(10, $code);
         }
+
+        public function testEqualMaxOrderAndPaymentWithExit()
+        {
+            $orders = [
+                new Order(7, 1),
+                new Order(9, 2)
+            ];
+            $payments = [
+                new Payment(9)
+            ];
+            $exit = true;
+
+            $code = CodeHelper::code($orders, $payments, $exit);
+            $this->assertEquals(10, $code);
+        }
     }
