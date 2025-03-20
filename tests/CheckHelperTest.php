@@ -44,4 +44,12 @@
             $result = CheckHelper::check($foods, "Pastel");
             $this->assertFalse($result);
         }
+
+        public function testEmptyFoodList()
+        {
+            $foods = [];
+
+            $result = CheckHelper::check($foods, "Soto Ayam");
+            $this->assertFalse($result);
+        }
     }
