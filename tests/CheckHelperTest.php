@@ -32,4 +32,16 @@
             $result = CheckHelper::check($foods, "rawon");
             $this->assertTrue($result);
         }
+
+        public function testFoodNotFound()
+        {
+            $foods = [
+                new Food("Mie Ayam", 6000),
+                new Food("Ayam Goreng", 12000),
+                new Food("Rawon", 12000)
+            ];
+
+            $result = CheckHelper::check($foods, "Pastel");
+            $this->assertFalse($result);
+        }
     }
