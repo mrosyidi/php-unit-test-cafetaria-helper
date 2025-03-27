@@ -49,4 +49,16 @@
             
             InputHelper::input("Nama", null, []);
         }
+
+        public function testInputThrowsExceptionWhenReadingFails()
+        {
+            $inputStream = fopen('php://memory', 'r+');
+
+            $this->expectOutputString("Nama: ");
+            $this->expectException(\Exception::class);
+            $this->expectExceptionMessage("Gagal membaca masukan.");
+
+            InputHelper::input("Nama", null, $inputStream);
+            fclose($inputStream);
+        }
     }
