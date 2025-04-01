@@ -32,4 +32,15 @@
             $this->assertTrue($result);
         }
 
+        public function testCheckReturnsFalseWhenItemDoesNotExist()
+        {
+            $items = [
+                new Food("Ayam Panggang", 6000),
+                new Food("Soto Ayam", 12000),
+                new Food("Rawon", 12000)
+            ];
+
+            $result = CheckHelper::check($items, "Gado-Gado");
+            $this->assertFalse($result);
+        }
     }
