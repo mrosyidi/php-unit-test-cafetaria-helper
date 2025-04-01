@@ -43,4 +43,14 @@
             $result = CheckHelper::check($items, "Gado-Gado");
             $this->assertFalse($result);
         }
+
+        public function testCheckThrowsExceptionWhenItemsArrayIsEmpty()
+        {
+            $items = [];
+
+            $this->expectException(\Exception::class);
+            $this->expectExceptionMessage("Item array tidak boleh kosong.");
+
+            CheckHelper::check($items, "Es Oyen");
+        }
     }
