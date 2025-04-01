@@ -19,4 +19,17 @@
             $result = CheckHelper::check($items, "Ayam Bakar");
             $this->assertTrue($result);
         }
+
+        public function testCheckIgnoresCaseAndWhitespaceWhenCheckingItem()
+        {
+            $items = [
+                new Drink("Es Oyen", 12000),
+                new Drink("Es Campur", 12000),
+                new Drink("Es Kelapa Muda", 7000)
+            ];
+
+            $result = CheckHelper::check($items, "eS  Ca  m   pur");
+            $this->assertTrue($result);
+        }
+
     }
