@@ -41,4 +41,12 @@
             InputHelper::input("", "Muhammad Rosyidi");
         }
 
+        public function testInputThrowsExceptionWhenStreamIsInvalid()
+        {
+            $this->expectOutputString("Nama: ");
+            $this->expectException(\Exception::class);
+            $this->expectExceptionMessage("Masukan stream yang disediakan tidak valid.");
+
+            InputHelper::input("Nama", null, "invalid_stream");
+        }
     }
