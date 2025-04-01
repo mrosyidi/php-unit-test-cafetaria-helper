@@ -53,4 +53,16 @@
 
             CheckHelper::check($items, "Es Oyen");
         }
+
+        public function testCheckThrowsExceptionWhenItemDoesNotHaveGetNameMethod()
+        {
+            $items = [
+                new \stdClass()
+            ];
+
+            $this->expectException(\Exception::class);
+            $this->expectExceptionMessage("Item pada index 0 tidak memiliki metode getName().");
+
+            CheckHelper::check($items, "Es Campur");
+        }
     }
