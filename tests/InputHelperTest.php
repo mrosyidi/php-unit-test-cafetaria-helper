@@ -32,4 +32,13 @@
 
             $this->assertEquals("Muhammad Rosyidi", $result);
         }
+
+        public function testInputThrowsExceptionWhenInfoIsEmpty()
+        {
+            $this->expectException(\Exception::class);
+            $this->expectExceptionMessage("Info tidak boleh kosong.");
+
+            InputHelper::input("", "Muhammad Rosyidi");
+        }
+
     }
