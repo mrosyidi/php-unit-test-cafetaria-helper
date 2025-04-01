@@ -17,4 +17,19 @@
             
             $this->assertEquals($providedInput, $result);
         }
+
+        public function testInputReadsFromProvidedStream()
+        {
+            $simulatedInput = "Muhammad Rosyidi";
+            $inputStream = fopen('php://memory', 'r+');
+            fwrite($inputStream, $simulatedInput);
+            rewind($inputStream);
+
+            $this->expectOutputString("Nama: ");
+
+            $result = InputHelper::input("Nama", null, $inputStream);
+            fclose($inputStream);
+
+            $this->assertEquals("Muhammad Rosyidi", $result);
+        }
     }
