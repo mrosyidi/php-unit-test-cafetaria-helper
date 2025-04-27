@@ -15,4 +15,16 @@
 
             $this->assertEquals(1, CodeHelper::code($orders, $payments, true));
         }
+
+        public function testCodeEmptyOrdersWithPayments()
+        {
+            $orders = [];
+
+            $payments = [
+                new Payment(5), 
+                new Payment(10)
+            ];
+
+            $this->assertEquals(11, CodeHelper::code($orders, $payments, true));
+        }
     }
