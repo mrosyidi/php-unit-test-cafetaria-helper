@@ -32,4 +32,14 @@
 
             $this->assertFalse($result);
         }
+
+        public function testFindThrowsExceptionEmptyItemsArray()
+        {
+            $items = [];
+
+            $this->expectException(\Exception::class);
+            $this->expectExceptionMessage('Item tidak boleh kosong.');
+            
+            FindHelper::find($items, 1);
+        }
     }
