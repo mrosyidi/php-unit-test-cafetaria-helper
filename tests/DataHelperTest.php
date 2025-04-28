@@ -20,4 +20,12 @@
 
             $this->assertEquals(["name" => "Ayam Panggang", "price" => 12000], $result);
         }
+
+        public function testDataThrowsExceptionEmptyItems()
+        {
+            $this->expectException(\Exception::class);
+            $this->expectExceptionMessage('Item tidak boleh kosong.');
+
+            DataHelper::data([], 0);
+        }
     }
