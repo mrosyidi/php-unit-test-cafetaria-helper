@@ -52,4 +52,14 @@
     
             FindHelper::find($items, 1);
         }
+
+        public function testFindThrowsExceptionItemWithoutGetCodeMethod()
+        {
+            $items = [new \stdClass()];
+    
+            $this->expectException(\Exception::class);
+            $this->expectExceptionMessage('Item pada index 0 harus memiliki metode getCode().');
+    
+            FindHelper::find($items, 1);
+        }
     }
