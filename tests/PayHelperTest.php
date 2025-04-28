@@ -40,4 +40,14 @@
 
             PayHelper::pay($orders, 2);
         }
+
+        public function testPayThrowsExceptionIfMissingMethod()
+        {
+            $this->expectException(\Exception::class);
+            $this->expectExceptionMessage('Setiap objek order harus memiliki metode getCode() dan getSubTotal().');
+
+            $orders = [new \stdClass()];
+
+            PayHelper::pay($orders, 1001);
+        }
     }
