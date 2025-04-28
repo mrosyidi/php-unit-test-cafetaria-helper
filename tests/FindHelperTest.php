@@ -19,4 +19,17 @@
 
             $this->assertTrue($result);
         }
+
+        public function testFindReturnsFalseWhenItemNotFound()
+        {
+            $items = [
+                new Order(1, 50000),
+                new Order(2, 22000),
+                new Order(3, 35000)
+            ];
+
+            $result = FindHelper::find($items, 4);
+
+            $this->assertFalse($result);
+        }
     }
