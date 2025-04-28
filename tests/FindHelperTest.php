@@ -42,4 +42,14 @@
             
             FindHelper::find($items, 1);
         }
+
+        public function testFindThrowsExceptionItemNotObject()
+        {
+            $items = ["Bukan objek"];
+    
+            $this->expectException(\Exception::class);
+            $this->expectExceptionMessage('Item pada index 0 bukan objek.');
+    
+            FindHelper::find($items, 1);
+        }
     }
