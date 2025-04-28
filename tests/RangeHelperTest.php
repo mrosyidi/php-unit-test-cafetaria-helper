@@ -40,4 +40,18 @@
 
             $this->assertFalse(RangeHelper::range($items, 4));
         }
+
+        public function testRangeThrowsExceptionNumberZero()
+        {
+            $this->expectException(\Exception::class);
+            $this->expectExceptionMessage('Bilangan harus lebih dari 0.');
+
+            $items = [
+                new Drink("Es Teh", 4000),
+                new Drink("Jus Alpukat", 10000),
+                new Drink("Es Kelapa Muda", 7000)
+            ];
+
+            RangeHelper::range($items, 0);
+        }
     }
