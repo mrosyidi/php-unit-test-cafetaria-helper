@@ -28,4 +28,18 @@
 
             DataHelper::data([], 0);
         }
+
+        public function testDataThrowsExceptionIndexOutOfBounds()
+        {
+            $items = [
+                new Drink("Es Teh", 4000),
+                new Drink("Jus Alpukat", 10000),
+                new Drink("Es Oyen", 12000)
+            ];
+
+            $this->expectException(\Exception::class);
+            $this->expectExceptionMessage('Index berada diluar jangkauan.');
+
+            DataHelper::data($items, 3);
+        }
     }
