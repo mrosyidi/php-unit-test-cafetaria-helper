@@ -18,4 +18,16 @@
             $total = PayHelper::pay($orders, 1);
             $this->assertEquals(54000, $total);
         }
+
+        public function testPayReturnsZeroWhenNoMatchingCode()
+        {
+            $orders = [
+                new Order(1, 30000),
+                new Order(2, 24000),
+                new Order(3, 20000)
+            ];
+
+            $total = PayHelper::pay($orders, 4);
+            $this->assertEquals(0, $total);
+        }
     }
