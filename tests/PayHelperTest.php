@@ -30,4 +30,14 @@
             $total = PayHelper::pay($orders, 4);
             $this->assertEquals(0, $total);
         }
+
+        public function testPayThrowsExceptionIfItemNotObject()
+        {
+            $this->expectException(\Exception::class);
+            $this->expectExceptionMessage('Semua item order harus berupa objek.');
+
+            $orders = ["Bukan objek"];
+
+            PayHelper::pay($orders, 2);
+        }
     }
