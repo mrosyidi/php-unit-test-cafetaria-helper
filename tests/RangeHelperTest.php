@@ -54,4 +54,13 @@
 
             RangeHelper::range($items, 0);
         }
+
+        public function testThrowsExceptionRangeEmptyItems()
+        {
+            $this->expectException(\Exception::class);
+            $this->expectExceptionMessage('Item tidak boleh kosong.');
+
+            $items = [];
+            RangeHelper::range($items, 1);
+        }
     }
