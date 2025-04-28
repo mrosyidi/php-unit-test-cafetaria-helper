@@ -29,4 +29,15 @@
 
             $this->assertTrue(RangeHelper::range($items, 3));
         }
+
+        public function testRangeNumberExceedsCount()
+        {
+            $items = [
+                new Food("Soto Ayam", 10000),
+                new Food("Ayam Panggang", 12000),
+                new Food("Gado-Gado", 10000)
+            ];
+
+            $this->assertFalse(RangeHelper::range($items, 4));
+        }
     }
