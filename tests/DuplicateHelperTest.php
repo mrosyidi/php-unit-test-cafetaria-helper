@@ -24,4 +24,17 @@
                 $this->assertEquals(1, $order->getCode());
             }
         }
+
+        public function testDuplicateReturnsEmptyArrayIfNoMatch()
+        {
+            $orders = [
+                new Order(1, 12000),
+                new Order(2, 15000),
+                new Order(3, 24000)
+            ];
+
+            $result = DuplicateHelper::duplicate($orders, 4);
+
+            $this->assertEmpty($result);
+        }
     }
